@@ -1,4 +1,4 @@
-PyJWT
+pyjwt
 requests 
 protobuf 
 psutil 
