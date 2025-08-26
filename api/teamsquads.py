@@ -5,28 +5,26 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/teamsquads", methods=["GET"])
-def teamsquads():
+@app.route("/api/teamsquads", methods=["GET"])
+def teamsquads_api():
     uid = request.args.get("uid")
     team = request.args.get("team")
-
+    
     if not uid or not team:
-        return jsonify({"error": "uid و team مطلوبين"}), 400
-
-    python_executable = sys.executable
-    squad_path = os.path.join(os.path.dirname(__file__), "../squad.py")
+        return jsonify({"error": "Missing uid or team"}), 400
 
     try:
-        output = subprocess.check_output(
-            [python_executable, squad_path, str(uid), str(team)],
-            stderr=subprocess.STDOUT,
+        # استدعاء سكواد كبروسيس خارجي
+        result = subprocess.run(
+            [sys.executable, "squad.py", uid, team],
+            capture_output=True,
             text=True,
-            timeout=120
+            check=True
         )
-        return jsonify({"success": True, "result": output})
+        output = result.stdout.strip()
+        return jsonify({"status": "success", "output": output})
     except subprocess.CalledProcessError as e:
-        return jsonify({"success": False, "error": e.output}), 500
-    except subprocess.TimeoutExpired:
-        return jsonify({"success": False, "error": "Timeout"}), 500
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        return jsonify({"status": "error", "error": e.stderr.strip()})
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=8080)
