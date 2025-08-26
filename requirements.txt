@@ -1,9 +1,9 @@
 pyjwt
-requests 
-protobuf 
-psutil 
-protobuf-decoder 
-pycryptodome 
-httpx 
+requests
+protobuf
+protobuf-decoder
+psutil
+pycryptodome
+httpx
 urllib3
 flask
