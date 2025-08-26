@@ -707,8 +707,8 @@ if __name__ == "__main__":
         sys.exit(1)
     try:
         client_thread = FF_CLIENT(
-            id="4130944097",
-            password="A25B68334573A33F8D85F4C5F9B974373C7C5424796448F535C121F5E56877A0",
+            id="4128857100",
+            password="CD935C41C215FB1EAC2E11847956437F3E05D4D4DD3354C3DD202D7FAB16AC44",
             target_uid=target_uid,
             team_number=team_number
         )
