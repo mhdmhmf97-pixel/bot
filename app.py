@@ -4,8 +4,8 @@ from squad import FF_CLIENT, map_team_number  # استدعاء البوت بال
 app = Flask(__name__)
 
 # ضع بيانات الحساب الذي سيستخدم للاتصال باللعبة
-BOT_ACCOUNT_ID = "3972631254"
-BOT_ACCOUNT_PASSWORD = "كلمة_مرور_الحساب_هنا"
+BOT_ACCOUNT_ID = "4130944097"
+BOT_ACCOUNT_PASSWORD = "A25B68334573A33F8D85F4C5F9B974373C7C5424796448F535C121F5E56877A0"
 
 @app.route("/teamsquads", methods=["GET"])
 def teamsquads():
