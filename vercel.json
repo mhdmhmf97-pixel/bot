@@ -1,16 +1,9 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "api/teamsquads.py",
-      "use": "@vercel/python"
-    }
+    { "src": "api/teamsquads.py", "use": "@vercel/python" }
   ],
   "routes": [
-    {
-      "src": "/api/teamsquads",
-      "methods": ["GET"],
-      "dest": "/api/teamsquads.py"
-    }
+    { "src": "/api/teamsquads", "dest": "api/teamsquads.py" }
   ]
 }
